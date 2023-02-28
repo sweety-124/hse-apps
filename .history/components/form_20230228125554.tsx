@@ -9,15 +9,13 @@ import {
   Platform,
   AsyncStorage  
 } from 'react-native';
-import ExportButton from './exportAction';
-import { readFile } from 'xlsx';
 
 
 const FormSubmission = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const workbookHeaders = readFile('filePath', { sheetRows: 1 });
+
   const handleSubmit = () => {
 
     // Perform form submission logic here
@@ -58,7 +56,6 @@ const FormSubmission = () => {
         >
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
-        <ExportButton data={'sweety'} headers={workbookHeaders} filename="sweety"/>
       </View>
     </KeyboardAvoidingView>
   );

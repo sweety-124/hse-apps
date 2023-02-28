@@ -10,14 +10,13 @@ import {
   AsyncStorage  
 } from 'react-native';
 import ExportButton from './exportAction';
-import { readFile } from 'xlsx';
-
+import xlsx from 'xlsx';
 
 const FormSubmission = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const workbookHeaders = readFile('filePath', { sheetRows: 1 });
+  const workbookHeaders = xlsx.readFile('filePath', { sheetRows: 1 });
   const handleSubmit = () => {
 
     // Perform form submission logic here

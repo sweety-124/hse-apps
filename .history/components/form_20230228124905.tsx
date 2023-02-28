@@ -7,19 +7,17 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  AsyncStorage  
+ 
 } from 'react-native';
-import ExportButton from './exportAction';
-import { readFile } from 'xlsx';
-
+import {AsyncStorage} from 'react-native-community/async-storage';
 
 const FormSubmission = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const workbookHeaders = readFile('filePath', { sheetRows: 1 });
-  const handleSubmit = () => {
 
+  const handleSubmit = () => {
+    AsyncStorage.setItem('data',name)
     // Perform form submission logic here
   };
 
@@ -58,7 +56,6 @@ const FormSubmission = () => {
         >
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
-        <ExportButton data={'sweety'} headers={workbookHeaders} filename="sweety"/>
       </View>
     </KeyboardAvoidingView>
   );
